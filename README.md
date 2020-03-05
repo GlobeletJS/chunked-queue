@@ -3,9 +3,9 @@
 Manage long-running tasks without losing interactivity
 
 ## Motivation
-Long-running tasks in JavaScript can block the event loop. If another, higher-
-priority task needs to run in the meantime, it will have to wait until the
-current task is finished.
+Long-running tasks in JavaScript can block the event loop. If another,
+higher-priority task needs to run in the meantime, it will have to wait
+until the current task is finished.
 
 One solution for this is to break the long-running task into chunks. Then,
 each chunk can be run in a [setTimeout] callback. If a higher-priority task
@@ -43,7 +43,8 @@ const taskId = queue.enqueueTask(newTask);
 
 The supplied `newTask` object may have the following properties:
 - `newTask.chunks` (REQUIRED): An array of zero-argument functions, in the
-  order at which they are to be run
+  order in which they are to be called. NOTE: These are assumed to be
+  *synchronous*
 - `newTask.getPriority` (OPTIONAL): A method that when called, returns a
   priority number for this task. Lower priority numbers will be run first.
   If not supplied, this task will be given a constant priority of 0.
@@ -64,5 +65,5 @@ Sorts the tasks in the queue, according to the values returned by the
 `.getPriority()` method on each task.
 
 This lets you re-set the priorities of the tasks after they are queued.
-Simply update the `.getPriority` methods to return lower values for the
+Simply update the `.getPriority` methods to return smaller values for the
 tasks which have become more urgent.
