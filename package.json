@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Manage long-running tasks without losing interactivity",
   "main": "index.js",
+  "module": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push && git push --tags"

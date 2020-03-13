@@ -34,7 +34,7 @@ const queue = chunkedQueue.init();
 ```
 
 ## API
-The initialized queue object exposes three methods
+The initialized queue object exposes four methods
 
 ### enqueueTask
 ```javascript
@@ -67,3 +67,9 @@ Sorts the tasks in the queue, according to the values returned by the
 This lets you re-set the priorities of the tasks after they are queued.
 Simply update the `.getPriority` methods to return smaller values for the
 tasks which have become more urgent.
+
+### countTasks
+```javascript
+numTasks = queue.countTasks();
+```
+Returns the number of tasks in the queue

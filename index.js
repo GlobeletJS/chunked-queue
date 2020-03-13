@@ -9,6 +9,7 @@ export function init() {
     enqueueTask,
     cancelTask,
     sortTasks,
+    countTasks: () => tasks.length,
   };
 
   function enqueueTask(newTask) {
