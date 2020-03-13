@@ -13,9 +13,10 @@ export function init() {
   };
 
   function enqueueTask(newTask) {
-    let defaultPriority = () => 0;
+    const defaultPriority = () => 0;
+    taskId += 1;
     tasks.push({ 
-      id: taskId++,
+      id: taskId,
       getPriority: newTask.getPriority || defaultPriority,
       chunks: newTask.chunks,
     });
