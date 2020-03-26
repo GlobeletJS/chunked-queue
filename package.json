@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/GlobeletJS/chunked-queue#readme",
   "dependencies": {
-    "zero-timeout": "0.0.3"
+    "zero-timeout": "0.0.4"
   }
 }
