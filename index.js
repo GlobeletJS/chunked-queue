@@ -1,4 +1,4 @@
-import 'zero-timeout';
+import "zero-timeout";
 
 export function init() {
   const tasks = [];
@@ -15,12 +15,12 @@ export function init() {
   function enqueueTask(newTask) {
     const defaultPriority = () => 0;
     taskId += 1;
-    tasks.push({ 
+    tasks.push({
       id: taskId,
       getPriority: newTask.getPriority || defaultPriority,
       chunks: newTask.chunks,
     });
-    if (!queueIsRunning) setZeroTimeout(runTaskQueue);
+    if (!queueIsRunning) window.setZeroTimeout(runTaskQueue);
     return taskId;
   }
 
@@ -49,7 +49,7 @@ export function init() {
     let chunk = tasks[0].chunks.shift();
     chunk();
 
-    setZeroTimeout(runTaskQueue);
+    window.setZeroTimeout(runTaskQueue);
   }
 
   function isDone(task) {

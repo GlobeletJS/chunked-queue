@@ -5,7 +5,8 @@
   "main": "index.js",
   "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js",
+    "test": "npm run lint",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -24,6 +25,10 @@
   },
   "homepage": "https://github.com/GlobeletJS/chunked-queue#readme",
   "dependencies": {
-    "zero-timeout": "0.0.4"
+    "zero-timeout": "^0.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-globeletjs": "^0.0.3"
   }
 }

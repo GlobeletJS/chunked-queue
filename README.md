@@ -2,21 +2,23 @@
 
 Manage long-running tasks without losing interactivity
 
+![tests](https://github.com/GlobeletJS/chunked-queue/actions/workflows/node.js.yml/badge.svg)
+
 ## Motivation
 Long-running tasks in JavaScript can block the event loop. If another,
 higher-priority task needs to run in the meantime, it will have to wait
 until the current task is finished.
 
 One solution for this is to break the long-running task into chunks. Then,
-each chunk can be run in a [setTimeout] callback. If a higher-priority task
+each chunk can be run in a [setTimeout][] callback. If a higher-priority task
 comes up, it will be able to run in between the chunks.
 
 chunked-queue manages the list of chunks for you. You can even give it
 multiple lists of chunks, and set (and update) priorities for each list,
 to make sure the most urgent task finishes first.
 
-Instead of [setTimeout], chunked-queue uses [zero-timeout], to avoid the
-[minimum delay] between setTimeout callbacks.
+Instead of [setTimeout][], chunked-queue uses [zero-timeout][], to avoid the
+[minimum delay][] between setTimeout callbacks.
 
 [setTimeout]: https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
 [zero-timeout]: https://github.com/GlobeletJS/zero-timeout
