@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/GlobeletJS/chunked-queue#readme",
   "dependencies": {
-    "zero-timeout": "^0.0.5"
+    "zero-timeout": "^0.0.6"
   },
   "devDependencies": {
     "eslint": "^7.30.0",
-    "eslint-config-globeletjs": "^0.0.3"
+    "eslint-config-globeletjs": "^0.0.6"
   }
 }

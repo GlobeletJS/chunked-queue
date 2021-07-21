@@ -2,8 +2,8 @@ import "zero-timeout";
 
 export function init() {
   const tasks = [];
-  var taskId = 0;
-  var queueIsRunning = false;
+  let taskId = 0;
+  let queueIsRunning = false;
 
   return {
     enqueueTask,
@@ -25,7 +25,7 @@ export function init() {
   }
 
   function cancelTask(id) {
-    let task = tasks.find(task => task.id === id);
+    const task = tasks.find(task => task.id === id);
     if (task) task.canceled = true;
   }
 
@@ -46,7 +46,7 @@ export function init() {
     if (!queueIsRunning) return;
 
     // Get the next chunk from the current task, and run it
-    let chunk = tasks[0].chunks.shift();
+    const chunk = tasks[0].chunks.shift();
     chunk();
 
     window.setZeroTimeout(runTaskQueue);
